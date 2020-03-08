@@ -5,33 +5,58 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<head>
+    <h1>Thiq Bike Shop</h1>
+</head>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MODELTYPE1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DESCRIPTION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.COMPONENTID)
-        </th>
-        <th></th>
-    </tr>
+<body style="background-color: blanchedalmond">
+    <p>Welcome to the 2020 Software Engineering Bike Shop!</p>
 
-    @foreach (var item in Model)
-    {
+    <input type="radio" id="mountain" name="bike" value="mountain">
+    <label for="mountain">Mountain Bike</label><br>
+    <input type="radio" id="hybrid" name="bike" value="hybrid">
+    <label for="hybrid">Hybrid Bike</label><br>
+    <input type="radio" id="mountainFull" name="bike" value="mountainFull">
+    <label for="mountainFull">Mountain Full Bike</label><br>
+    <input type="radio" id="race" name="bike" value="race">
+    <label for="race">Race Bike</label><br>
+    <input type="radio" id="road" name="bike" value="road">
+    <label for="road">Road Bike</label><br>
+    <input type="radio" id="tour" name="bike" value="tour">
+    <label for="tour">Tour Bike</label><br>
+    <input type="radio" id="track" name="bike" value="track">
+    <label for="track">Track Bike</label><br>
+    <input type="submit" value="Submit">
+
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MODELTYPE1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DESCRIPTION)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.COMPONENTID)
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.MODELTYPE1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DESCRIPTION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.COMPONENTID)
+            </th>
+            <th></th>
         </tr>
-    }
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MODELTYPE1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DESCRIPTION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COMPONENTID)
+                </td>
+            </tr>
+        }
+</body>
+
+
+
