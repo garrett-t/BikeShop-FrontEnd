@@ -36,9 +36,35 @@ namespace BikeShop_FrontEnd.Controllers
             return View(bikeTypes);
         }
 
+        public ActionResult Paint(string biketype)
+        {
+            IEnumerable<PaintModel> paintTypes = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/");
+                var responseTask = client.GetAsync("paint");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if(result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<IList<PaintModel>>();
+                    readTask.Wait();
+
+                    paintTypes = readTask.Result;
+                }
+                else
+                {
+                    paintTypes = Enumerable.Empty<PaintModel>();
+                    ModelState.AddModelError(string.Empty, "Server error");
+                }
+            }
+            return View(paintTypes);
+        }
+
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "This is WonderWheels' SEII Bikeshop application.";
 
             return View();
         }
