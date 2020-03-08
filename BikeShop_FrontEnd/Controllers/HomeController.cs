@@ -38,7 +38,7 @@ namespace BikeShop_FrontEnd.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "This is WonderWheels' SEII Bikeshop application.";
 
             return View();
         }
