@@ -36,8 +36,10 @@ namespace BikeShop_FrontEnd.Controllers
             return View(bikeTypes);
         }
 
-        public ActionResult Paint(string biketype)
+        [HttpPost]
+        public ActionResult Paint(string bikeModel)
         {
+            ViewBag.Bike = bikeModel;
             IEnumerable<PaintModel> paintTypes = null;
             using (var client = new HttpClient())
             {
