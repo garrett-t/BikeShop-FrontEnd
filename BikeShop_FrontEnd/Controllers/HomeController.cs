@@ -98,13 +98,14 @@ namespace BikeShop_FrontEnd.Controllers
                 }
             }
             bikes.OrderByDescending(s => s.SERIALNUMBER);
-            ViewBag.PK = bikes.Last().SERIALNUMBER + 1;
+            /*ViewBag.PK = bikes.Last().SERIALNUMBER + 1;
             ViewBag.Bike = bikeModel;
             ViewBag.Paint = paintType;
-            ViewBag.Construction = constructionType;
-            bike.SERIALNUMBER = ViewBag.PK;
-            bike.CONSTRUCTION = ViewBag.Bike;
-            bike.PAINTID = ViewBag.Paint;
+            ViewBag.Construction = constructionType;*/
+            bike.SERIALNUMBER = bikes.Last().SERIALNUMBER + 1;
+            bike.MODELTYPE = bikeModel;
+            bike.CONSTRUCTION = constructionType;
+            bike.PAINTID = paintType;
             return View(bike);
         }
 
