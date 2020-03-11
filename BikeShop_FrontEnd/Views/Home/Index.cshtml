@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BikeShop_FrontEnd.Models.BicycleModel>
+﻿@model IEnumerable<BikeShop_FrontEnd.Models.BicycleTypeModel>
 
 @{
     ViewBag.Title = "Index";
@@ -42,7 +42,7 @@
                 <td><b>@Html.DisplayFor(modelItem => item.MODELTYPE1)</b></td>  
                 <td>@Html.DisplayFor(modelItem => item.DESCRIPTION)</td>
                 @*<td>@Html.RadioButtonFor(modelItem => item.MODELTYPE1, i)</td>*@
-                <td><input type="radio" name="bikeModel" value=@Html.DisplayFor(modelItem => item.MODELTYPE1)></td>
+                <td><input type="radio" name="bikeModel" value="@Html.DisplayFor(modelItem => item.MODELTYPE1)"></td>
             </tr>
         }
         </table>

@@ -6,7 +6,7 @@ using System.Web;
 
 namespace BikeShop_FrontEnd.Models
 {
-    public class BicycleModel
+    public class BicycleTypeModel
     {
         [Key]
         public string MODELTYPE1 { get; set; }

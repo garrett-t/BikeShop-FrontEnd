@@ -125,7 +125,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BicycleModel.cs" />
+    <Compile Include="Models\BicycleViewModel.cs" />
+    <Compile Include="Models\BicycleTypeModel.cs" />
     <Compile Include="Models\PaintModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -166,6 +167,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Paint.cshtml" />
+    <Content Include="Views\Home\Construction.cshtml" />
+    <Content Include="Views\Home\NewBicyclePurchase.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
