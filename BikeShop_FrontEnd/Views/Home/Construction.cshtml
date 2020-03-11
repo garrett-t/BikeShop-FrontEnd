@@ -6,27 +6,29 @@
 
 <h2>Construction</h2>
 
-@using (Html.BeginForm("NewBicyclePurchase", "Home"))
-{
-    <table class="table">
-        <tr>
-            <th>Construction Type</th>
-            <th></th>
-        </tr>
-        <tr>
-            <td>Welded</td>
-            <td><input type="radio" name="constructionType" value="Welded" /></td>
-        </tr>
-        <tr>
-            <td>Bonded</td>
-            <td><input type="radio" name="constructionType" value="Bonded" /></td>
-        </tr>
-        <tr>
-            <td>TIG Welded</td>
-            <td><input type="radio" name="constructionType" value="TIG Welded" /></td>
-        </tr>
-    </table>
-    <input type="hidden" name="bikeModel" value="@ViewBag.Bike" />
-    <input type="hidden" name="paintType" value="@ViewBag.Paint" />
-    <input type="submit" value="Submit" />
-}
+<body style="background-color: blanchedalmond">
+    @using (Html.BeginForm("NewBicyclePurchase", "Home"))
+    {
+        <table class="table">
+            <tr>
+                <th>Construction Type</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>Welded</td>
+                <td><input type="radio" name="constructionType" value="Welded" /></td>
+            </tr>
+            <tr>
+                <td>Bonded</td>
+                <td><input type="radio" name="constructionType" value="Bonded" /></td>
+            </tr>
+            <tr>
+                <td>TIG Welded</td>
+                <td><input type="radio" name="constructionType" value="TIG Welded" /></td>
+            </tr>
+        </table>
+        <input type="hidden" name="bikeModel" value="@ViewBag.Bike" />
+        <input type="hidden" name="paintType" value="@ViewBag.Paint" />
+        <input type="submit" value="Submit" />
+    }
+</body>

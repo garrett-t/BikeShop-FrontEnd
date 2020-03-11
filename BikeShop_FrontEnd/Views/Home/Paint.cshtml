@@ -7,29 +7,30 @@
 
 <h2>Paint</h2>
 
-<p>@ViewBag.Bike</p>
-@using (Html.BeginForm("Construction", "Home", FormMethod.Post))
-{
-    <table class="table">
-        <tr>
-            <th>Paint Color</th>
-            <th>Style</th>
-            <th>Color List</th>
-            <th></th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            var i = Html.DisplayFor(modelItem => item.COLORNAME);
+<body style="background-color: blanchedalmond">
+    @using (Html.BeginForm("Construction", "Home", FormMethod.Post))
+    {
+        <table class="table">
             <tr>
-
-                <td><b>@Html.DisplayFor(modelItem => item.COLORNAME)</b></td>
-                <td>@Html.DisplayFor(modelItem => item.COLORSTYLE)</td>
-                <td>@Html.DisplayFor(modelItem => item.COLORLIST)</td>
-                <td><input type="radio" name="paintType" value=@Html.DisplayFor(modelItem => item.PAINTID)></td>
-
+                <th>Paint Color</th>
+                <th>Style</th>
+                <th>Color List</th>
+                <th></th>
             </tr>
-        }
-    </table>
-    <input type="hidden" name="bikeModel" value="@ViewBag.Bike" />
-    <input type="submit" value="Submit">
-}
+            @foreach (var item in Model)
+            {
+                var i = Html.DisplayFor(modelItem => item.COLORNAME);
+                <tr>
+
+                    <td><b>@Html.DisplayFor(modelItem => item.COLORNAME)</b></td>
+                    <td>@Html.DisplayFor(modelItem => item.COLORSTYLE)</td>
+                    <td>@Html.DisplayFor(modelItem => item.COLORLIST)</td>
+                    <td><input type="radio" name="paintType" value=@Html.DisplayFor(modelItem => item.PAINTID)></td>
+
+                </tr>
+            }
+        </table>
+        <input type="hidden" name="bikeModel" value="@ViewBag.Bike" />
+        <input type="submit" value="Submit">
+    }
+</body>
