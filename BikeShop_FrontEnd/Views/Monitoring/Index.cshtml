@@ -6,53 +6,55 @@
 }
 
 <h2>Index</h2>
+<body style="background-color: blanchedalmond; color:black">
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClicksAM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClicksAfternoon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClicksPM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ConversionRate)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClicksAM)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClicksAfternoon)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClicksPM)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ConversionRate)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClicksAM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClicksAfternoon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClicksPM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConversionRate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClicksAM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClicksAfternoon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClicksPM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ConversionRate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</body>

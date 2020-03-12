@@ -128,6 +128,7 @@
     </Compile>
     <Compile Include="Models\BicycleViewModel.cs" />
     <Compile Include="Models\BicycleTypeModel.cs" />
+    <Compile Include="Models\Monitoring\Customer.cs" />
     <Compile Include="Models\Monitoring\Metrics.cs" />
     <Compile Include="Models\PaintModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -172,6 +173,8 @@
     <Content Include="Views\Home\Construction.cshtml" />
     <Content Include="Views\Home\NewBicyclePurchase.cshtml" />
     <Content Include="Views\Monitoring\Index.cshtml" />
+    <Content Include="Views\Monitoring\Create.cshtml" />
+    <Content Include="Views\Monitoring\Customers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
