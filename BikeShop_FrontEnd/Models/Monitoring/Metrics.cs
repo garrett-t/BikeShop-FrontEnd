@@ -6,6 +6,7 @@ using System.Web;
 
 namespace BikeShop_FrontEnd.Models.Monitoring
 {
+    //Current implementation of Monitoring Metrics model
     public class Metrics
     {
         public int Id { get; set; }

@@ -10,11 +10,13 @@ namespace BikeShop_FrontEnd.Controllers
 {
     public class HomeController : Controller
     {
+        //Loads modeltypes from database
         public ActionResult Index()
         {
             IEnumerable<BicycleTypeModel> bikeTypes = null;
             using (var client = new HttpClient())
             {
+                //GET request to API for all modeltypes
                 client.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/");
                 var responseTask = client.GetAsync("modeltype");
                 responseTask.Wait();
@@ -25,6 +27,7 @@ namespace BikeShop_FrontEnd.Controllers
                     var readTask = result.Content.ReadAsAsync<IList<BicycleTypeModel>>();
                     readTask.Wait();
 
+                    //Read all modeltypes into IList
                     bikeTypes = readTask.Result;
                 }
                 else
@@ -33,16 +36,20 @@ namespace BikeShop_FrontEnd.Controllers
                     ModelState.AddModelError(string.Empty, "Server error");
                 }
             }
+            //Pass IEnumerable of all bike models to view
             return View(bikeTypes);
         }
 
+        //Select type of paint
         [HttpPost]
         public ActionResult Paint(string bikeModel)
         {
+            //Pass selected bike model into new view
             ViewBag.Bike = bikeModel;
             IEnumerable<PaintModel> paintTypes = null;
             using (var client = new HttpClient())
             {
+                //GET request to API for all paint types
                 client.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/");
                 var responseTask = client.GetAsync("paint");
                 responseTask.Wait();
@@ -53,6 +60,7 @@ namespace BikeShop_FrontEnd.Controllers
                     var readTask = result.Content.ReadAsAsync<IList<PaintModel>>();
                     readTask.Wait();
 
+                    //Read all paint types into IList
                     paintTypes = readTask.Result;
                 }
                 else
@@ -64,6 +72,7 @@ namespace BikeShop_FrontEnd.Controllers
             return View(paintTypes);
         }
 
+        //Select construction type of bike
         [HttpPost]
         public ActionResult Construction(string bikeModel, int paintType)
         {
@@ -73,6 +82,7 @@ namespace BikeShop_FrontEnd.Controllers
             return View();
         }
 
+        //Check that all previous info is correct
         public ActionResult NewBicyclePurchase(string bikeModel, int paintType, string constructionType)
         {
             IEnumerable<BicycleViewModel> bikes = null;
@@ -97,11 +107,9 @@ namespace BikeShop_FrontEnd.Controllers
                     ModelState.AddModelError(string.Empty, "Server error.");
                 }
             }
+            //Order list of bicycles by serial number
             bikes.OrderByDescending(s => s.SERIALNUMBER);
-            /*ViewBag.PK = bikes.Last().SERIALNUMBER + 1;
-            ViewBag.Bike = bikeModel;
-            ViewBag.Paint = paintType;
-            ViewBag.Construction = constructionType;*/
+            //Create new serial number for new record
             bike.SERIALNUMBER = bikes.Last().SERIALNUMBER + 1;
             bike.MODELTYPE = bikeModel;
             bike.CONSTRUCTION = constructionType;
@@ -109,6 +117,7 @@ namespace BikeShop_FrontEnd.Controllers
             return View(bike);
         }
 
+        //POST new bike
         [HttpPost]
         public ActionResult PostBicyclePurchase(BicycleViewModel bike)
         {
@@ -116,14 +125,15 @@ namespace BikeShop_FrontEnd.Controllers
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/bicycle");
-
+                //Send new bike as JSON POST request
                 var postTask = client.PostAsJsonAsync<BicycleViewModel>("bicycle", bike);
                 postTask.Wait();
 
                 var result = postTask.Result;
                 if (result.IsSuccessStatusCode)
                 {
-                    return RedirectToAction("About");
+                    //Return user to front page to create new bike order
+                    return RedirectToAction("Index");
                 }
             }
             ModelState.AddModelError(string.Empty, "Server error.");

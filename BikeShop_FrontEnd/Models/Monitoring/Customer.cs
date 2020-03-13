@@ -5,6 +5,7 @@ using System.Web;
 
 namespace BikeShop_FrontEnd.Models.Monitoring
 {
+    //Current implementation of Monitoring customer model
     public class Customer
     {
         public int Id { get; set; }

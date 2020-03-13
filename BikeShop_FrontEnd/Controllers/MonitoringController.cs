@@ -10,7 +10,7 @@ namespace BikeShop_FrontEnd.Controllers
 {
     public class MonitoringController : Controller
     {
-        // GET: Monitoring
+        // GET: Monitoring team's API information
         public ActionResult Index()
         {
             IEnumerable<Metrics> metrics = null;
