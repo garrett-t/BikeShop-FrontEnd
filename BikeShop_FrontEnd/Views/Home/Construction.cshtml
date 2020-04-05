@@ -7,7 +7,7 @@
 <h2>Construction</h2>
 
 <body style="background-color: blanchedalmond; color:black">
-    @using (Html.BeginForm("NewBicyclePurchase", "Home"))
+    @using (Html.BeginForm("NewBicycle", "Home"))
     {
         <table class="table">
             <tr>
@@ -27,8 +27,8 @@
                 <td><input type="radio" name="constructionType" value="TIG Welded" /></td>
             </tr>
         </table>
-        <input type="hidden" name="bikeModel" value="@ViewBag.Bike" />
-        <input type="hidden" name="paintType" value="@ViewBag.Paint" />
+        <input type="hidden" name="bikeModel" value="@ViewBag.bikeModel" />
+        <input type="hidden" name="paintType" value="@ViewBag.paintType" />
         <input type="submit" value="Submit" />
     }
 </body>

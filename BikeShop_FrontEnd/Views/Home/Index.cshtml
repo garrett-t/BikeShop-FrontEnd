@@ -26,6 +26,7 @@
         <input type="radio" id="track" name="bike" value="track">
         <label for="track">Track Bike</label><br>*@
 
+
     @using (Html.BeginForm("Paint", "Home", FormMethod.Post))
     {
         <table class="table">
@@ -45,7 +46,7 @@
             </tr>
         }
         </table>
-
+        //<input type="hidden" name="bike" value="@ViewBag.bike" />
         <input type="submit" value="Submit">
     }
 
