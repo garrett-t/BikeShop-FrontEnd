@@ -139,8 +139,8 @@ namespace BikeShop_FrontEnd.Controllers
         }*/
 
         //Check that all previous info is correct
-        //public ActionResult NewBicyclePurchase(string bikeModel, int paintType, string constructionType)
-        public ActionResult NewBicycle(string bikeModel, int paintType, string constructionType)
+        public ActionResult NewBicyclePurchase(string bikeModel, int paintType, string constructionType)
+        //public ActionResult NewBicycle(string bikeModel, int paintType, string constructionType)
         {
             /*IEnumerable<BicycleViewModel> bikes = null;
             BicycleViewModel bike = new BicycleViewModel();

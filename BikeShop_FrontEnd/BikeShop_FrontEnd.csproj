@@ -176,11 +176,10 @@
     <Content Include="Views\Monitoring\Index.cshtml" />
     <Content Include="Views\Monitoring\Create.cshtml" />
     <Content Include="Views\Monitoring\Customers.cshtml" />
-    <Content Include="Views\Home\NewBicycle.cshtml" />
+    <Content Include="Views\ShoppingCart\ViewShoppingCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ShoppingCart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
