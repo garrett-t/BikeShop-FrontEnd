@@ -27,6 +27,15 @@
                     <li class="active"><a href="@Url.Action("ViewShoppingCart", "ShoppingCart")" class="btn btn-info btn-lg">
                          <span class="glyphicon glyphicon-shopping-cart" style="color:green"></span>
                          Cart <span class="badge">@Session["count"]</span></a></li>
+                    <div class="login-container" style=float:right></div>
+                    @if(User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Logout", "Logout", "User")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Login", "Login", "User")</li>
+                    }
                 </ul>
             </div>
         </div>
