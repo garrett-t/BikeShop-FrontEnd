@@ -138,8 +138,11 @@
     </Compile>
     <Compile Include="Models\BicycleViewModel.cs" />
     <Compile Include="Models\BicycleTypeModel.cs" />
+    <Compile Include="Models\Monitoring\BikeSalesType.cs" />
     <Compile Include="Models\Monitoring\Customer.cs" />
+    <Compile Include="Models\Monitoring\LoginAttempts.cs" />
     <Compile Include="Models\Monitoring\Metrics.cs" />
+    <Compile Include="Models\Monitoring\Transactions.cs" />
     <Compile Include="Models\PaintModel.cs" />
     <Compile Include="Models\RoleMaster.cs">
       <DependentUpon>UserDBContext.tt</DependentUpon>

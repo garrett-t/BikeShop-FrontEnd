@@ -1,7 +1,9 @@
 ﻿using BikeShop_FrontEnd.Models;
+using BikeShop_FrontEnd.Models.Monitoring;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -24,11 +26,30 @@ namespace BikeShop_FrontEnd.Controllers
             {
                 bool IsValidUser = context.Users.Any(user => user.UserName.ToLower() == model.UserName.ToLower()
                 && user.UserPassword == model.Password);
+                LoginAttempts la = new LoginAttempts();
 
                 if (IsValidUser)
                 {
+                    la.UserName = model.UserName;
+                    la.Successful = true;
+
+                    using (var client = new HttpClient())
+                    {
+                        client.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/loginattempts");
+                        var postTask = client.PostAsJsonAsync<LoginAttempts>("loginattempts", la);
+                        postTask.Wait();
+                    }
+
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
                     return RedirectToAction("Index", "Home");
+                }
+                la.UserName = model.UserName;
+                la.Successful = false;
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/loginattempts");
+                    var postTask = client.PostAsJsonAsync<LoginAttempts>("loginattempts", la);
+                    postTask.Wait();
                 }
                 ModelState.AddModelError("", "Invalid Username or Password");
                 return View();
