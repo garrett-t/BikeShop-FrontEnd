@@ -12,16 +12,16 @@
 </p>
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.CUSTOMERID)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.MODELTYPE)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PAINTID)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.FRAMESIZE)
         </th>
         <th>
@@ -41,11 +41,11 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PAINTER)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.CONSTRUCTION)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.WATERBOTTLEBRAZEONS)
         </th>
         <th>
@@ -92,21 +92,21 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.COMPONENTLIST)
-        </th>
+        </th>*@
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.CUSTOMERID)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.MODELTYPE)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PAINTID)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.FRAMESIZE)
         </td>
         <td>
@@ -126,11 +126,11 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PAINTER)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.CONSTRUCTION)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.WATERBOTTLEBRAZEONS)
         </td>
         <td>
@@ -177,7 +177,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.COMPONENTLIST)
-        </td>
+        </td>*@
     </tr>
 }
 
