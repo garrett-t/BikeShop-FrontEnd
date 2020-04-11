@@ -24,6 +24,7 @@ namespace BikeShop_FrontEnd.Controllers
         {
             using (SE2Entities context = new SE2Entities())
             {
+                //check whether attempted login is valid
                 bool IsValidUser = context.Users.Any(user => user.UserName.ToLower() == model.UserName.ToLower()
                 && user.UserPassword == model.Password);
                 LoginAttempts la = new LoginAttempts();
@@ -33,6 +34,7 @@ namespace BikeShop_FrontEnd.Controllers
                     la.UserName = model.UserName;
                     la.Successful = true;
 
+                    //log this login attempt as successful
                     using (var client = new HttpClient())
                     {
                         client.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/loginattempts");
@@ -45,6 +47,7 @@ namespace BikeShop_FrontEnd.Controllers
                 }
                 la.UserName = model.UserName;
                 la.Successful = false;
+                //log this login attempt as failed
                 using (var client = new HttpClient())
                 {
                     client.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/loginattempts");
@@ -64,6 +67,7 @@ namespace BikeShop_FrontEnd.Controllers
         [HttpPost]
         public ActionResult SignUp(User model)
         {
+            //create new user account
             using (SE2Entities context = new SE2Entities())
             {
                 context.Users.Add(model);
