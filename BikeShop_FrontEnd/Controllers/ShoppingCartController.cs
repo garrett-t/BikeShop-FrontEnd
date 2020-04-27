@@ -43,6 +43,7 @@ namespace BikeShop_FrontEnd.Controllers
             return View((List<BicycleViewModel>)Session["cart"]);
         }
 
+        [Authorize]
         public ActionResult PurchaseItems()
         {
             List<BicycleViewModel> bicycleList = (List<BicycleViewModel>)Session["cart"];
