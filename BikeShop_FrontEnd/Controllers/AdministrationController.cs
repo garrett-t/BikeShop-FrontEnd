@@ -10,17 +10,20 @@ namespace BikeShop_FrontEnd.Controllers
 {
     public class AdministrationController : Controller
     {
+        [Authorize(Roles = "Admin")]
         // GET: Administration
         public ActionResult Index()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult CreateBikeType()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult CreateBikeType(BicycleTypeModel modelType)
         {
