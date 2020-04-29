@@ -53,7 +53,8 @@ namespace BikeShop_FrontEnd.Controllers
                 //Send number of bikes purchased for metrics
                 Transactions t = new Transactions();
                 t.Quantity = bicycleList.Count;
-                client3.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/transactions");
+                //client3.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/transactions");
+                client3.BaseAddress = new Uri("http://dahkm.azurewebsites.net/api/transactions");
                 var tPost = client3.PostAsJsonAsync<Transactions>("transactions", t);
                 tPost.Wait();
             }
@@ -83,7 +84,8 @@ namespace BikeShop_FrontEnd.Controllers
                     //Send type of bike for Metrics
                     BikeSalesType bst = new BikeSalesType();
                     bst.modelType = bike.MODELTYPE;
-                    client2.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/bikesalestype");
+                    //client2.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/bikesalestype");
+                    client2.BaseAddress = new Uri("https://dahkm.azurewebsites.net/api/bikesalestype");
                     var bstPost = client2.PostAsJsonAsync<BikeSalesType>("bikesalestype", bst);
                     bstPost.Wait();
                 }

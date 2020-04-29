@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<body style="background-color: blanchedalmond; color:black">
+    <p>Hello @User.Identity.Name</p>
+    <p>@Html.ActionLink("Add Bicycle Type", "CreateBikeType", "Administration")</p>
+</body>
