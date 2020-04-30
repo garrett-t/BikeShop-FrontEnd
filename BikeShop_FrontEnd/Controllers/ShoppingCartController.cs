@@ -54,7 +54,7 @@ namespace BikeShop_FrontEnd.Controllers
                 Transactions t = new Transactions();
                 t.Quantity = bicycleList.Count;
                 //client3.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/transactions");
-                client3.BaseAddress = new Uri("http://dahkm.azurewebsites.net/api/transactions");
+                client3.BaseAddress = new Uri("https://dahkm.azurewebsites.net/api/transactions");
                 var tPost = client3.PostAsJsonAsync<Transactions>("transactions", t);
                 tPost.Wait();
             }
