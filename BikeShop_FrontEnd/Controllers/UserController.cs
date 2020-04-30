@@ -37,7 +37,7 @@ namespace BikeShop_FrontEnd.Controllers
                     //log this login attempt as successful
                     using (var client = new HttpClient())
                     {
-                        client.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/loginattempts");
+                        client.BaseAddress = new Uri("https://dahkm.azurewebsites.net/api/loginattempts");
                         var postTask = client.PostAsJsonAsync<LoginAttempts>("loginattempts", la);
                         postTask.Wait();
                     }
@@ -50,7 +50,7 @@ namespace BikeShop_FrontEnd.Controllers
                 //log this login attempt as failed
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("http://bikeshop-frontend.azurewebsites.net/api/loginattempts");
+                    client.BaseAddress = new Uri("https://dahkm.azurewebsites.net/api/loginattempts");
                     var postTask = client.PostAsJsonAsync<LoginAttempts>("loginattempts", la);
                     postTask.Wait();
                 }
